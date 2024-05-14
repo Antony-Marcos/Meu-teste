@@ -19,8 +19,7 @@ public class EmployeeService {
     }
 
     public Employee createEmployee(Employee employee) {
-        Employee newEmployee = employeeRepository.save(employee);
-        return newEmployee;
+        return employeeRepository.save(employee);
     }
 
     public List<Employee> getAllEmployees() {
@@ -35,4 +34,7 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+    public void deleteEmployee(UUID id) {
+        employeeRepository.deleteById(id);
+    }
 }
