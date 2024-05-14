@@ -38,4 +38,14 @@ public class EmployeeController {
     public Employee putEmployee(@RequestBody Employee employee) {
         return employeeService.updateEmployee(employee);
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteEmployee(@PathVariable UUID id) {
+        try {
+            employeeService.deleteEmployee(id);
+            return "Employee with ID " + id + " deleted successfully";
+        } catch (Exception e) {
+            return "Failed to delete employee with ID " + id + ": " + e.getMessage();
+        }
+    }
 }
