@@ -34,10 +34,12 @@ public class EmployeeController {
         return employeeService.getEmployee(id);
     }
 
-    @PutMapping
-    public Employee putEmployee(@RequestBody Employee employee) {
+    @PutMapping("/{id}")
+    public Employee putEmployee(@PathVariable UUID id, @RequestBody Employee employee) {
+        employee.setId(id); 
         return employeeService.updateEmployee(employee);
     }
+
 
     @DeleteMapping("/{id}")
     public String deleteEmployee(@PathVariable UUID id) {
